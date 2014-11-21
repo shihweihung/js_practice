@@ -1,0 +1,21 @@
+<html>
+<title>Compare number</title>
+<script>
+function numberCom()
+{
+	var a = form1.first.value;
+	var b = form1.second.value;
+	
+	if(parseInt(a) > parseInt(b)){alert("a > b");}
+	else if(parseInt(a) < parseInt(b)){alert("a < b");}
+	else{alert("a = b");}
+}
+</script>
+<body>
+<form name="form1" onsubmit="return numberCom();">
+Number A:<input type="text" name="first"><br>
+Number B:<input type="text" name="second"><br>
+<input type = "submit" value="Submit">
+</form>
+</body>
+</html>
