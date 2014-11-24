@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>touch事件</title>
+</head>
+<body>
+<style type="text/css">
+#c_card{ width:100px; height:200px; border:#F00 1px solid;}
+</style>
+<section> 
+<div id="c_card"></div>    
+</section>
+<script type="text/javascript">
+function touchStart(event){
+    if(event.targetTouches.length != 1){return false;}//單點觸控
+    touch = event.targetTouches[0];
+    touObj.innerHTML = touch.screenX+'_'+touch.screenY;
+    
+}
+/*
+function touchMove(event){
+    event.preventDefault();
+    if(event.targetTouches.length != 1 || !move){return false;}//單點觸控
+    touch = event.targetTouches[0];
+    touObj.innerHTML = touch.pageX+'_'+touch.pageY;
+}
+*/
+function touchEnd(event){
+    touObj.innerHTML = 'end';
+}
+
+
+var touObj = document.getElementById("c_card");
+touObj.addEventListener("touchstart",touchStart,false);  
+//touObj.addEventListener("touchmove",touchMove,false);
+touObj.addEventListener("touchend",touchEnd,false); 
+
+</script>
+</body>
+</html>

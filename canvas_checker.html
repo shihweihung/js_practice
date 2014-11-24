@@ -1,0 +1,16 @@
+<html><head>
+<title>canvas checker</title>
+</head>
+<script type="text/javascript">
+function isCanvasSupported(){
+  /*var canvas = document.createElement('canvas');
+  if (!!canvas.shpages){
+  document.write("support canvas");
+  return}*/
+  var dummy_canvas = document.createElement('canvas');
+  var context = dummy_canvas.getContext('2d');
+  return typeof context.fillText == document.write("support canvas");
+}
+</script>
+<body onload="isCanvasSupported()">
+</body></html>
