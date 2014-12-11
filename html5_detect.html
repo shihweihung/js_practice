@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>HTML5 API Detector!</h3>
+
+<script>
+function supports_history() {
+    return !!(window.history && window.history.pushState);
+ }
+if (!supports_history()){ document.write("History api is not supportted");}
+else document.write("History is supportted");
+document.write('<br/>');
+function supports_geolocation() {
+    return !!navigator.geolocation;
+ }
+if (!supports_geolocation()){ document.write("Geolocation api is not supportted");}
+else document.write("Geolocation is supportted");
+document.write('<br/>');
+function supports_indexedDB() {
+    return !!window.indexedDB;
+ }
+if (!supports_indexedDB(false)){ document.write("indexedDB api is not supportted");}
+else document.write("indexedDB is supportted");
+
+</script>
+
+</body>
+</html>
