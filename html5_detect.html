@@ -22,7 +22,22 @@ function supports_indexedDB() {
  }
 if (!supports_indexedDB(false)){ document.write("indexedDB api is not supportted");}
 else document.write("indexedDB is supportted");
-
+document.write('<br/>');
+function supports_input_datetime(){
+var i = document.createElement('input');
+i.setAttribute('type', 'datetime');
+return i.type !== 'text';
+}
+if(!supports_input_datetime()){ document.write("datetime is not supportted");}
+else document.write("datetime is supportted");
+document.write('<br/>');
+function supports_input_datetimelocal(){
+var i = document.createElement('input');
+i.setAttribute('type', 'datetime-local');
+return i.type !== 'text';
+}
+if(!supports_input_datetimelocal()){ document.write("datetime-local is not supportted");}
+else document.write("datetime-local is supportted");
 </script>
 
 </body>
