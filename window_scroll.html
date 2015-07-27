@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    height: 5000000px;
+}
+</style>
+</head>
+<body>
+
+<script>
+function scrollWin() {
+	var before_loadtime = new Date().getTime();
+	for(i=1; i<=10; i++){
+    window.scrollBy(0, 500);
+	}
+	var after_loadtime = new Date().getTime();
+	var timeDiffer = after_loadtime - before_loadtime;
+	document.getElementById("footer").innerHTML = "Pgae load time is <font color='red'><b>" + timeDiffer + "</b></font> Seconds";
+	alert("Scroll time is"  + timeDiffer + "s");
+}
+</script>
+
+<p>Click the button to scroll the document window to 500 pixels vertically.</p>
+
+<button onclick="scrollWin()">Click me to scroll vertically!</button><br><br>
+
+<div id="footer" class="footer">Footer</div>
+
+</body>
+</html>
