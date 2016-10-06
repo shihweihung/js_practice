@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h1>Builds for go flip 2 master branch</h1>
+<div>
+You can always use <a href=go_flip2-master-eng-latest.zip> eng latest </a> to get latest eng build.
+</div>
+<br />
+<table><tr>
+  <th align="left">eng</th>
+  <th>&nbsp;&nbsp;&nbsp;</th>
+  <th align="left">userdebug</th>
+  <th>&nbsp;&nbsp;&nbsp;</th>
+  <th align="left">user</th></tr>
+<tr>
+  <td style="text-align:left;vertical-align:top;padding:0">
+   <div id="id01"></div>
+  </td>
+  <td>&nbsp;&nbsp;&nbsp;</td>
+  <td style="text-align:left;vertical-align:top;padding:0">
+   <div id="id02"></div>
+  </td>
+  <td>&nbsp;&nbsp;&nbsp;</td>
+  <td style="text-align:left;vertical-align:top;padding:0">
+   <div id="id03"></div>
+  </td>
+</tr></table>
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "go_flip2.userdebug.json";
+xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        myFunction(xmlhttp.responseText,"id02");
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+var xmlhttp2 = new XMLHttpRequest();
+var url2 = "go_flip2.eng.json";
+xmlhttp2.onreadystatechange=function() {
+    if (xmlhttp2.readyState == 4 && xmlhttp2.status == 200) {
+        myFunction(xmlhttp2.responseText,"id01");
+    }
+}
+xmlhttp2.open("GET", url2, true);
+xmlhttp2.send();
+
+var xmlhttp3 = new XMLHttpRequest();
+var url3 = "go_flip2.user.json";
+xmlhttp3.onreadystatechange=function() {
+    if (xmlhttp3.readyState == 4 && xmlhttp3.status == 200) {
+        myFunction(xmlhttp3.responseText,"id03");
+    }
+}
+xmlhttp3.open("GET", url3, true);
+xmlhttp3.send();
+
+function myFunction(response,myid) {
+    var arr = JSON.parse(response);
+    var i;
+    var out = "<table>";
+
+    for(i = arr.length - 1; i >= 0 ; i--) {
+        out += "<tr><td>" +
+        /* arr[i][0] +
+        "</td><td>" + */
+        "<a href=" + arr[i][1] + ">" + arr[i][0] + "</a>" +
+        "</td></tr>";
+    }
+    out += "</table>";
+    document.getElementById(myid).innerHTML = out;
+    document.getElementById('buildid').innerHTML = arr[arr.length-2][0];
+}
+</script>
+
+</body>
+</html>
